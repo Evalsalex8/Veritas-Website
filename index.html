@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A consumer-awareness guide about greenwashing in digital marketing.">
+  <title>Greenwashing | Think Green, Think Clearly</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --forest:#173b2a;
+      --forest-2:#24553d;
+      --ink:#183127;
+      --muted:#66766d;
+      --cream:#f5f2e9;
+      --white:#fffefa;
+      --green:#70a95b;
+      --green-light:#dcebd4;
+      --lime:#b8d98c;
+      --sand:#eadfbd;
+      --line:#d9ded4;
+      --red:#bd6257;
+      --red-light:#f3ddda;
+      --shadow:0 16px 45px rgba(23,59,42,.12);
+      --radius:18px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family:"DM Sans",sans-serif;
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    img{display:block;width:100%}
+
+    .container{
+      width:min(var(--max),calc(100% - 48px));
+      margin:auto;
+    }
+
+    /* NAVBAR */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      padding:14px 0;
+      background:rgba(245,242,233,.94);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(217,222,212,.9);
+    }
+    .nav{
+      min-height:62px;
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-right:auto;
+    }
+    .brand-mark{
+      width:43px;
+      height:43px;
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      background:var(--green);
+      color:white;
+      font-size:22px;
+      box-shadow:0 7px 20px rgba(112,169,91,.25);
+    }
+    .brand strong{
+      display:block;
+      font-family:"Playfair Display",serif;
+      font-size:18px;
+      line-height:1.05;
+    }
+    .brand small{
+      color:var(--muted);
+      font-size:10px;
+      font-weight:800;
+    }
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:13px;
+      font-weight:800;
+    }
+    .nav-links a{transition:.2s}
+    .nav-links a:hover{color:#47783a}
+    .nav-home{
+      padding:9px 17px;
+      border-radius:999px;
+      background:var(--green);
+      color:white;
+    }
+    .nav-actions{display:flex;align-items:center;gap:9px}
+    .search-btn,.menu-btn{
+      border:0;
+      background:transparent;
+      color:var(--forest);
+      font-size:20px;
+      width:38px;
+      height:38px;
+      border-radius:50%;
+    }
+    .search-btn:hover,.menu-btn:hover{background:rgba(23,59,42,.07)}
+    .menu-btn{display:none}
+    .help-btn,.btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      border:0;
+      border-radius:999px;
+      padding:13px 21px;
+      font-weight:800;
+      transition:.2s;
+    }
+    .help-btn,.btn-green{
+      background:var(--green);
+      color:white;
+      box-shadow:0 8px 22px rgba(112,169,91,.22);
+    }
+    .btn:hover,.help-btn:hover{transform:translateY(-2px)}
+    .btn-outline{
+      background:transparent;
+      color:var(--forest);
+      border:1.5px solid currentColor;
+    }
+
+    /* HERO */
+    .hero{
+      min-height:650px;
+      position:relative;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      color:white;
+      background:
+        linear-gradient(90deg,rgba(11,40,27,.97) 0%,rgba(11,40,27,.9) 38%,rgba(11,40,27,.35) 75%,rgba(11,40,27,.58) 100%),
+        url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1800&q=85") center/cover;
+    }
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      padding:90px 0;
+      max-width:720px;
+    }
+    .eyebrow,.section-kicker{
+      color:var(--green);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      margin-bottom:11px;
+    }
+    .hero .eyebrow{color:var(--lime)}
+    h1,h2,h3{
+      font-family:"Playfair Display",serif;
+      line-height:1.08;
+      margin:0;
+    }
+    h1{
+      font-size:clamp(48px,6vw,78px);
+      letter-spacing:-.04em;
+    }
+    .hero p{
+      max-width:650px;
+      margin:24px 0 30px;
+      color:#e5eee7;
+      font-size:17px;
+    }
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .hero .btn-outline{color:white}
+    .hero .btn-outline:hover{background:rgba(255,255,255,.1)}
+
+    section{padding:88px 0}
+    .section-title{
+      font-size:clamp(34px,4vw,52px);
+      letter-spacing:-.025em;
+    }
+    .section-subtitle{
+      color:var(--muted);
+      max-width:720px;
+      margin:14px 0 0;
+      font-size:16px;
+    }
+
+    /* WHAT IS GREENWASHING */
+    .intro{background:var(--white)}
+    .intro-layout{
+      display:grid;
+      grid-template-columns:1fr 1.35fr;
+      gap:55px;
+      align-items:center;
+    }
+    .intro-image{
+      height:440px;
+      object-fit:cover;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+    }
+    .definition{
+      margin-top:25px;
+      padding:22px 24px;
+      border-left:5px solid var(--green);
+      background:var(--green-light);
+      border-radius:0 14px 14px 0;
+    }
+    .definition strong{display:block;margin-bottom:5px}
+
+    /* RED FLAGS */
+    .flags{background:var(--cream)}
+    .flags-head{margin-bottom:34px}
+    .flag-grid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:14px;
+    }
+    .flag-card{
+      min-height:260px;
+      padding:24px 18px;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:15px;
+      text-align:center;
+      transition:.25s;
+    }
+    .flag-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .icon-circle{
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      margin:0 auto 17px;
+      display:grid;
+      place-items:center;
+      background:var(--green-light);
+      color:#4e813e;
+      font-size:27px;
+    }
+    .flag-card h3{font-size:18px;margin-bottom:9px}
+    .flag-card p{color:var(--muted);margin:0;font-size:13px}
+
+    /* EXAMPLES */
+    .examples{
+      background:var(--forest);
+      color:white;
+    }
+    .examples .section-kicker{color:var(--lime)}
+    .examples .section-subtitle{color:#cbd9d0}
+    .example-grid{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+    .example-card{
+      overflow:hidden;
+      background:var(--white);
+      color:var(--ink);
+      border-radius:14px;
+      box-shadow:0 12px 30px rgba(0,0,0,.16);
+    }
+    .example-card img{height:170px;object-fit:cover}
+    .example-body{padding:20px}
+    .example-body h3{font-size:21px;margin-bottom:8px}
+    .example-body p{color:var(--muted);font-size:13px;margin:0}
+    .claim{
+      margin-top:14px;
+      padding:11px 13px;
+      border-radius:9px;
+      background:var(--red-light);
+      color:#80443d;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    /* CONSUMER */
+    .consumer{background:var(--white)}
+    .consumer-layout{
+      display:grid;
+      grid-template-columns:.9fr 1.5fr;
+      gap:50px;
+      align-items:center;
+    }
+    .consumer-image{
+      height:470px;
+      object-fit:cover;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+    }
+    .checks{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:28px;
+    }
+    .check{
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+    }
+    .check-number{
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:var(--green);
+      color:white;
+      font-size:12px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+    .check h3{font-size:18px;margin-bottom:6px}
+    .check p{color:var(--muted);font-size:13px;margin:0}
+
+    /* CLAIM CHECKER */
+    .checker{
+      background:var(--cream);
+    }
+    .checker-box{
+      max-width:900px;
+      margin:auto;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:35px;
+      box-shadow:var(--shadow);
+    }
+    .checker-form{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:12px;
+      margin-top:23px;
+    }
+    .checker-form input{
+      width:100%;
+      border:1px solid #d5dbd3;
+      border-radius:11px;
+      padding:14px;
+      outline:none;
+      background:#fffefa;
+    }
+    .checker-form input:focus{
+      border-color:var(--green);
+      box-shadow:0 0 0 3px rgba(112,169,91,.15);
+    }
+    .checker-result{
+      min-height:28px;
+      margin-top:16px;
+      font-weight:800;
+      font-size:14px;
+    }
+
+    /* TAKE ACTION */
+    .action{
+      background:var(--forest);
+      color:white;
+    }
+    .action-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+      margin-top:32px;
+    }
+    .action-card{
+      padding:27px;
+      border-radius:15px;
+      background:#214b37;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .action-card .icon{font-size:29px;margin-bottom:12px}
+    .action-card h3{font-size:22px;margin-bottom:8px}
+    .action-card p{color:#cbd9d0;font-size:13px;margin:0}
+
+    /* FOOTER */
+    footer{
+      background:#102b20;
+      color:white;
+      padding:40px 0;
+    }
+    .footer-main{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      align-items:center;
+    }
+    footer p{color:#b9cbc0;font-size:12px;margin:5px 0}
+    .footer-bottom{
+      margin-top:30px;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:#9fb3a8;
+      font-size:11px;
+      text-align:center;
+    }
+
+    /* SEARCH */
+    .search-modal{
+      position:fixed;
+      inset:0;
+      z-index:2000;
+      display:none;
+      place-items:start center;
+      padding-top:110px;
+      background:rgba(8,29,20,.72);
+      backdrop-filter:blur(5px);
+    }
+    .search-modal.show{display:grid}
+    .search-box{
+      width:min(600px,calc(100% - 30px));
+      background:var(--white);
+      border-radius:16px;
+      padding:25px;
+      box-shadow:0 30px 80px rgba(0,0,0,.25);
+    }
+    .search-row{display:flex;gap:10px}
+    .search-row input{flex:1}
+    .close-search{
+      border:0;
+      background:#e8eee4;
+      border-radius:9px;
+      padding:0 15px;
+    }
+
+    @media(max-width:1000px){
+      .nav-links{
+        position:absolute;
+        left:24px;
+        right:24px;
+        top:86px;
+        display:none;
+        flex-direction:column;
+        align-items:stretch;
+        padding:18px;
+        background:var(--white);
+        border:1px solid var(--line);
+        border-radius:15px;
+        box-shadow:var(--shadow);
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{padding:8px 10px}
+      .menu-btn{display:block}
+      .help-btn{display:none}
+      .flag-grid{grid-template-columns:repeat(3,1fr)}
+      .intro-layout,.consumer-layout{grid-template-columns:1fr}
+      .intro-image,.consumer-image{height:380px}
+    }
+
+    @media(max-width:720px){
+      .container{width:min(100% - 30px,var(--max))}
+      section{padding:65px 0}
+      .brand small{display:none}
+      .hero{min-height:620px}
+      .hero-inner{padding:70px 0}
+      h1{font-size:46px}
+      .hero p{font-size:15px}
+      .flag-grid,.example-grid,.action-grid{grid-template-columns:1fr 1fr}
+      .checks{grid-template-columns:1fr}
+      .checker-form{grid-template-columns:1fr}
+      .footer-main{display:block}
+    }
+
+    @media(max-width:440px){
+      .flag-grid,.example-grid,.action-grid{grid-template-columns:1fr}
+      .hero-buttons .btn{width:100%}
+      .intro-image,.consumer-image{height:300px}
+    }
+  </style>
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#home">
+      <span class="brand-mark">🌱</span>
+      <span>
+        <strong>EcoTangi</strong>
+        <small>VERITAS PETA GROUP 5, 11BE-11</small>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a class="nav-home" href="#home">Home</a>
+      <a href="#what-is">What Is It?</a>
+      <a href="#examples">Examples</a>
+      <a href="#action">Take Action</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="eyebrow">Digital Marketing Awareness</div>
+        <h1>Greenwashing</h1>
+        <p>
+          When brands make products look more environmentally friendly than they
+          really are. Learn how misleading green claims can influence what you buy
+          and how to spot them.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn btn-green" href="#what-is">Learn About Greenwashing →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS GREENWASHING -->
+  <section class="intro" id="what-is">
+    <div class="container intro-layout">
+      <img class="intro-image"
+           src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=85"
+           alt="Green leaves and nature">
+
+      <div>
+        <div class="section-kicker">Understand the Issue</div>
+        <h2 class="section-title">What Is Greenwashing?</h2>
+        <p class="section-subtitle">
+          Greenwashing happens when a business uses environmental messages,
+          designs, or claims to make a product or company seem more eco-friendly
+          than the available evidence supports.
+        </p>
+
+        <div class="definition">
+          Greenwashing is misleading people about how environmentally friendly
+          a product, service, or company really is.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLES -->
+  <section class="examples" id="examples">
+    <div class="container">
+      <div class="section-kicker">Look Beyond the Advertisement</div>
+      <h2 class="section-title">Common Greenwashing Tactics</h2>
+      <p class="section-subtitle">
+        The problem isn't just using green logos or talking about saving the planet. The real issue is when an ad tricks you into thinking a product is way better for the earth than it actually is.
+      </p>
+
+      <div class="example-grid">
+        <article class="example-card">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80" alt="Product on a table">
+          <div class="example-body">
+            <h3>“100% Green”</h3>
+            <p>An ad claims a product is perfectly safe for the earth, but doesn't actually explain how or why.</p>
+            <div class="claim">Ask: What does “green” actually mean?</div>
+          </div>
+        </article>
+
+        <article class="example-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Consumer product">
+          <div class="example-body">
+            <h3>Selective Facts</h3>
+            <p>A company brags about one small good thing they do while hiding a bunch of bad things. For example, a fast-food place might brag that they switched to paper straws, but completely ignore the fact that the entire cup is still made of unrecyclable plastic.</p>
+            <div class="claim">Ask: What details are they leaving out?</div>
+          </div>
+        </article>
+
+        <article class="example-card">
+          <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=80" alt="Marketing display">
+          <div class="example-body">
+            <h3>Fake Eco-Vibes</h3>
+            <p>NUsing earth-toned colors and nature words just to make the product look clean and safe.</p>
+            <div class="claim">Ask: Are they just using a cool design to trick me?</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSUMER GUIDE -->
+  <section class="consumer">
+    <div class="container consumer-layout">
+      <img class="consumer-image"
+           src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1000&q=85"
+           alt="Person shopping online">
+
+      <div>
+        <div class="section-kicker">Be a Smarter Consumer</div>
+        <h2 class="section-title">Think Before You Trust a Claim</h2>
+        <p class="section-subtitle">
+          You do not need to be an expert. Just ask a few simple questions
+          to see if an ad is telling the real story or just faking it.
+        </p>
+
+        <div class="checks">
+          <article class="check">
+            <div class="check-number">1</div>
+            <h3>Is the claim specific</h3>
+            <p>Check for broad words like "eco-friendly" or "natural" instead of real, specific details.</p>
+          </article>
+
+          <article class="check">
+            <div class="check-number">2</div>
+            <h3>Is there evidence</h3>
+            <p>Check whether the company provides reliable information supporting the claim.</p>
+          </article>
+
+          <article class="check">
+            <div class="check-number">3</div>
+            <h3>Who verified it</h3>
+            <p>Look for credible certifications and understand what they actually certify.</p>
+          </article>
+
+          <article class="check">
+            <div class="check-number">4</div>
+            <h3>Check everything about the product</h3>
+            <p>A company might use recycled plastic for the bottle but fill it with chemicals that harm the earth.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTION -->
+  <section class="action" id="action">
+    <div class="container">
+      <div class="section-kicker">Be Aware</div>
+      <h2 class="section-title">What Can Consumers Do?</h2>
+      <p class="section-subtitle">
+        Greenwashing becomes easier to recognize when consumers slow down,
+        question claims, and look for reliable information.
+      </p>
+
+      <div class="action-grid">
+        <article class="action-card">
+          <div class="icon">🔎</div>
+          <h3>Research</h3>
+          <p>Check the company's environmental information.</p>
+        </article>
+
+        <article class="action-card">
+          <div class="icon">📖</div>
+          <h3>Read the Details</h3>
+          <p>Check product labels, certifications, evidence, and specific environmental claims.</p>
+        </article>
+
+        <article class="action-card">
+          <div class="icon">📣</div>
+          <h3>Share Awareness</h3>
+          <p>Help other consumers recognize misleading marketing.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- SEARCH MODAL -->
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true">
+  <div class="search-box">
+    <h3 style="font-size:27px;margin-bottom:15px;">Search the guide</h3>
+    <div class="search-row">
+      <input id="searchInput" type="search" placeholder="Try: vague words, evidence, certification">
+      <button class="close-search" id="closeSearch" type="button">Close</button>
+    </div>
+    <p id="searchResult" style="font-size:13px;color:var(--muted);margin:12px 0 0;"></p>
+  </div>
+</div>
+
+<script>
+(() => {
+  "use strict";
+
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.textContent = open ? "✕" : "☰";
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    });
+  });
+
+  // SEARCH
+  const searchBtn = document.getElementById("searchBtn");
+  const searchModal = document.getElementById("searchModal");
+  const closeSearch = document.getElementById("closeSearch");
+  const searchInput = document.getElementById("searchInput");
+  const searchResult = document.getElementById("searchResult");
+
+  function openSearch(){
+    searchModal.classList.add("show");
+    searchInput.focus();
+  }
+
+  function hideSearch(){
+    searchModal.classList.remove("show");
+    searchInput.value = "";
+    searchResult.textContent = "";
+  }
+
+  searchBtn.addEventListener("click", openSearch);
+  closeSearch.addEventListener("click", hideSearch);
+
+  searchModal.addEventListener("click", e => {
+    if(e.target === searchModal) hideSearch();
+  });
+
+  document.addEventListener("keydown", e => {
+    if(e.key === "Escape") hideSearch();
+  });
+
+  searchInput.addEventListener("input", () => {
+    const term = searchInput.value.trim().toLowerCase();
+
+    if(!term){
+      searchResult.textContent = "";
+      return;
+    }
+
+    const headings = [...document.querySelectorAll("h1,h2,h3")];
+    const match = headings.find(h => h.textContent.toLowerCase().includes(term));
+
+    searchResult.textContent = match
+      ? "Found: " + match.textContent
+      : "No heading matched. Try “greenwashing”, “red flags”, “examples”, or “check”.";
+  });
+
+  // CLAIM CHECKER
+  const claimInput = document.getElementById("claimInput");
+  const checkClaim = document.getElementById("checkClaim");
+  const checkerResult = document.getElementById("checkerResult");
+
+  function analyzeClaim(){
+    const claim = claimInput.value.trim().toLowerCase();
+
+    if(!claim){
+      checkerResult.textContent = "Enter a marketing claim first.";
+      checkerResult.style.color = "#bd6257";
+      return;
+    }
+
+    const vagueWords = [
+      "eco-friendly","eco friendly","green","natural","clean",
+      "sustainable","earth-friendly","environmentally friendly",
+      "planet friendly","100% green","carbon neutral"
+    ];
+
+    const found = vagueWords.filter(word => claim.includes(word));
+
+    if(found.length){
+      checkerResult.textContent =
+        "⚠️ This claim may need more information. Look for specific details, evidence, and credible verification.";
+      checkerResult.style.color = "#8a6a18";
+    }else{
+      checkerResult.textContent =
+        "✓ No common vague green phrase was detected. You should still check the evidence and context behind the claim.";
+      checkerResult.style.color = "#47783a";
+    }
+  }
+
+  checkClaim.addEventListener("click", analyzeClaim);
+
+  claimInput.addEventListener("keydown", e => {
+    if(e.key === "Enter") analyzeClaim();
+  });
+})();
+</script>
+</body>
+</html>
